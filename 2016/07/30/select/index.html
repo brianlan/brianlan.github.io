@@ -12,6 +12,7 @@
 <li>The frame has a “last instruction” pointer, the instruction it executed most recently. In the beginning, the last instruction pointer is -1, meaning the generator has not begun</li>
 <li>The advantage of using coroutine based async is that coroutine can be paused and resumed, so we can write the code to be run next just after <strong>yield from</strong>,<br>it will be paused and give out control and then wait for the control back to continue to run the code below. So when programming, it’s just like writing sync code.</li>
 <li><strong>yield from</strong> / <strong>await</strong> only provides a async framework / capability. The trigger / ready_event after the thing is done actually needs low-level package / features to support such as <a href="https://docs.python.org/3/library/selectors.html" target="_blank" rel="external">selector</a>.</li>
+<li>Future is a result that a coroutine is waiting for.</li>
 </ul>
 <h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
 <li>Why selector is called I/O Multiplexing (多路复用)</li>
