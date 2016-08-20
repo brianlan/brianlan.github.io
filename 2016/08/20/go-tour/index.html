@@ -40,16 +40,38 @@
 </ul>
 <h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><ul>
 <li>NULL</li>
+<li>use == to test equivalence</li>
 </ul>
 <h3 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h3><ul>
-<li>use {} to initialize a defined struct type, e.g. v := Vertex{1, 2}</li>
+<li>use {} to initialize a defined struct type, e.g.<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v := Vertex&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="arrary"><a href="#arrary" class="headerlink" title="arrary"></a>arrary</h3><ul>
+<h3 id="array"><a href="#array" class="headerlink" title="array"></a>array</h3><ul>
 <li>arrays cannot be resized</li>
 </ul>
 <h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><ul>
-<li>slice is a dynamically-sized array, e.g. <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s []<span class="typename">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<li><p>slice is a dynamically-sized array, e.g. </p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s []<span class="typename">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>slices are like references to arrays. A slice does not store any data, it just describes a section of an underlying array.</p>
+</li>
+<li>when talking about the index, the slice in golang is just the same as in python.</li>
+<li>slice has <em>len</em> and <em>cap</em>. </li>
+<li>empty slice is <em>nil</em></li>
+</ul>
+<h3 id="examples_for_array__26amp_3B_slice"><a href="#examples_for_array__26amp_3B_slice" class="headerlink" title="examples for array &amp; slice"></a>examples for array &amp; slice</h3><ul>
+<li>in below example, b is an array with type [2]string (2 is calculated out from the literal, and then fixed to as the array size). While c is a slice, even the literals contains 2 elements, but the type is still dynamically sized as []string.<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b := [...]<span class="typename">string</span>&#123;<span class="string">"Penn"</span>, <span class="string">"Teller"</span>&#125;</span><br><span class="line">c := []<span class="typename">string</span>&#123;<span class="string">"Brian"</span>, <span class="string">"Ryan"</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="range"><a href="#range" class="headerlink" title="range"></a>range</h3><ul>
+<li><em>for i, v := range mylist</em> is similar to python’s <em>for idx, val in enumerate(mylist)</em></li>
+<li>the returning of range: the first is the index, and the second is a copy of the element at that index.</li>
+</ul>
+<h3 id="variant_length_params"><a href="#variant_length_params" class="headerlink" title="variant length params"></a>variant length params</h3><ul>
+<li>…T</li>
+</ul>
+<h3 id="Literals"><a href="#Literals" class="headerlink" title="Literals"></a>Literals</h3><ul>
+<li>no matter it is a struct literals, array literals or slice literals, it’s like providing the content values when declaring it.</li>
 </ul>
 <h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><ul>
 <li>can not omit {} when using <strong>if</strong> and <strong>else</strong>.</li>
@@ -83,7 +105,8 @@
 <li>Because := is a way to omit <strong>var</strong>. but when define a constant, we use keyword <strong>const</strong>, which means it’s not a <strong>var</strong>. So := can not be used here.</li>
 </ul>
 </li>
-<li>is it the thing so called EventLoop?<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">  events = sel.select()</span><br><span class="line">  <span class="keyword">for</span> key, mask <span class="keyword">in</span> events:</span><br><span class="line">      callback = key.data</span><br><span class="line">      callback(key.fileobj, mask)</span><br></pre></td></tr></table></figure>
-</li>
+<li>what’s the underlying implementation of creating a slice literals? Is there an array created first, and then slicing a full of it?</li>
+<li>what does <em>cap</em> do in a slice?</li>
+<li>why do we need to use <em>make</em> to create a zeroed array and a slice?</li>
 </ul>
 </div><div class="tags"><a href="/tags/Go/">Go</a><a href="/tags/Programming/">Programming</a></div><div class="post-nav"><a href="/2016/07/30/select/" class="next">select<i class="icon-next"></i></a></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search" class="search-form-input"/><input type="hidden" name="sitesearch" value="http://www.lanrongyi.com"/></form></div><div class="widget"><div class="widget-title">Categories</div></div><div class="widget"><div class="widget-title">Tags</div><div class="tagcloud"><a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/select/" style="font-size: 15px;">select</a> <a href="/tags/Programming/" style="font-size: 15px;">Programming</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/OOP/" style="font-size: 15px;">OOP</a></div></div><div class="widget"><div class="widget-title">Recent</div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/go-tour/">My Tour of Go</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/30/select/">select</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/31/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/31/Python-OOP-Thinking/">Python OOP Thinking</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/30/My-New-Post/">测试文章</a></li></ul></div><div class="widget"><div class="widget-title">Blogroll</div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><div id="footer">© <a href="/." rel="nofollow">Rambo的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/jquery.min.js?v=0.0.0"></script><script type="text/javascript" src="/js/totop.js?v=0.0.0"></script><script type="text/javascript" src="/js/fancybox.pack.js?v=0.0.0"></script><script type="text/javascript" src="/js/jquery.fancybox.js?v=0.0.0"></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
