@@ -21,17 +21,51 @@
 <h3 id="named_return"><a href="#named_return" class="headerlink" title="named return"></a>named return</h3><ul>
 <li>there seems no big benefit to use named return (naked return)</li>
 </ul>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><ul>
+<li>Numeric constants are high-precision values. An untyped constant takes the type needed by its context.</li>
+</ul>
 <h3 id="factored"><a href="#factored" class="headerlink" title="factored"></a>factored</h3><ul>
 <li>can reduce some duplicated coding, for example, var (a int = 1, b float = 0.1) and import (“fmt”, “match/cmplx”)</li>
 </ul>
 <h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul>
 <li>factored import: use parenthesis and write each imported packaged in separated lines without comma or semi-colon</li>
 </ul>
+<h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3><ul>
+<li>the only keyword for loop in Go is <strong>for</strong>, can use <strong>for</strong> to do the thing that <strong>while</strong> used to do. (indeed, most of the <strong>while</strong> use case can be replaced by <strong>for</strong>)</li>
+<li>can not omit {} when using <strong>for</strong>, because Go don’t use newline to differentiate code blocks like python does</li>
+<li>infinite loop := <strong>for</strong> {}</li>
+</ul>
+<h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><ul>
+<li>seems like defer is following a push / pop stack mechanism. </li>
+</ul>
+<h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><ul>
+<li>NULL</li>
+</ul>
+<h3 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h3><ul>
+<li>use {} to initialize a defined struct type, e.g. v := Vertex{1, 2}</li>
+</ul>
+<h3 id="arrary"><a href="#arrary" class="headerlink" title="arrary"></a>arrary</h3><ul>
+<li>arrays cannot be resized</li>
+</ul>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><ul>
+<li>slice is a dynamically-sized array, e.g. <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s []<span class="typename">int</span> = primes[<span class="number">1</span>:<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><ul>
+<li>can not omit {} when using <strong>if</strong> and <strong>else</strong>.</li>
+<li>statement can be placed before if condition to do some preparation</li>
+</ul>
+<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><ul>
+<li>statement can be placed before the variable under switch test</li>
+<li>no need to write break in each branch.</li>
+<li>we can leave the switch condition empty, it’s a easy way to do long if-then-else chains.</li>
+</ul>
 <h3 id="built-ins"><a href="#built-ins" class="headerlink" title="built-ins"></a>built-ins</h3><ul>
 <li>fmt is similar to c’s printf and scanf. </li>
 <li>in fmt.Printf(), %f, %e and %g are all formatting float numbers. But %f formats data as decimal but no exponent; %e outputs scientific notations; while %g is a balancer between %f and %e: %e for large exponents, %f otherwise.</li>
 <li>%T outputs the type of a var, %v prints the default format of a var’s value.</li>
 <li>%q is a double-quoted string safely escaped with Go syntax, with this we do not need the python-style ‘“{}”‘</li>
+<li>fmt.Println accepts any number of params, and output them using ‘ ‘ as separator.</li>
 </ul>
 <h3 id="Declaration"><a href="#Declaration" class="headerlink" title="Declaration"></a>Declaration</h3><ul>
 <li>easier to understand than C family style. it’s a improvement over traditional styles, it shows the evolution of programming languages in recent years, we can see more and more languages use the way that Go uses.</li>
