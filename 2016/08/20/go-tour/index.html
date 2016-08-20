@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>My Tour of Go | Rambo的博客</title><link rel="stylesheet" type="text/css" href="/css/normalize.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/pure-min.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/grids-responsive-min.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">My Tour of Go</h1><a id="logo" href="/.">Rambo的博客</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="icon-home"> Home</i></a><a href="/archives/"><i class="icon-archive"> Archive</i></a><a href="/about/"><i class="icon-about"> About</i></a><a href="/atom.xml"><i class="icon-rss"> RSS</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post post-page"><h1 class="post-title">My Tour of Go</h1><div class="post-meta">2016-08-20</div><div class="post-content"><h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><h3 id="package"><a href="#package" class="headerlink" title="package"></a>package</h3><ul>
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>My Tour of Go | Rambo的博客</title><link rel="stylesheet" type="text/css" href="/css/normalize.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/pure-min.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/grids-responsive-min.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">My Tour of Go</h1><a id="logo" href="/.">Rambo的博客</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="icon-home"> Home</i></a><a href="/archives/"><i class="icon-archive"> Archive</i></a><a href="/about/"><i class="icon-about"> About</i></a><a href="/atom.xml"><i class="icon-rss"> RSS</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post post-page"><h1 class="post-title">My Tour of Go</h1><div class="post-meta">2016-08-20</div><div class="post-content"><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="package"><a href="#package" class="headerlink" title="package"></a>package</h3><ul>
 <li>Go’s package control is similar to python, but it has convention, </li>
 <li>package name is all writen in lower case</li>
 <li>referring to some function or vars from a package, only the exported names of this package is visible from the outside. This is similar to private / public access of defined elements.</li>
@@ -6,6 +6,23 @@
 <h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><ul>
 <li>function name is starting with Capital letter.</li>
 <li>type comes after variable name when passing params to a function</li>
+<li>use <strong>func</strong> keyword to define a function</li>
+<li>if two parameters have the same type, we can omit former ones and keep only the last one. It’s also reflect the thinking behind the design of Go - simpliy the language expression.</li>
+<li>Go can return multiple results in a function, similar to python. Is it an implicit tuple type?</li>
+</ul>
+<h3 id="asignment"><a href="#asignment" class="headerlink" title="asignment"></a>asignment</h3><ul>
+<li>:= is initialize operator (use this as much as possible)</li>
+<li>= is assign operator</li>
+<li>can use <strong>var</strong> to do the declaration, we can also put an assign altogether.</li>
+</ul>
+<h3 id="type_cast"><a href="#type_cast" class="headerlink" title="type cast"></a>type cast</h3><ul>
+<li>should be explicit</li>
+</ul>
+<h3 id="named_return"><a href="#named_return" class="headerlink" title="named return"></a>named return</h3><ul>
+<li>there seems no big benefit to use named return (naked return)</li>
+</ul>
+<h3 id="factored"><a href="#factored" class="headerlink" title="factored"></a>factored</h3><ul>
+<li>can reduce some duplicated coding, for example, var (a int = 1, b float = 0.1) and import (“fmt”, “match/cmplx”)</li>
 </ul>
 <h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><ul>
 <li>factored import: use parenthesis and write each imported packaged in separated lines without comma or semi-colon</li>
@@ -13,29 +30,22 @@
 <h3 id="built-ins"><a href="#built-ins" class="headerlink" title="built-ins"></a>built-ins</h3><ul>
 <li>fmt is similar to c’s printf and scanf. </li>
 <li>in fmt.Printf(), %f, %e and %g are all formatting float numbers. But %f formats data as decimal but no exponent; %e outputs scientific notations; while %g is a balancer between %f and %e: %e for large exponents, %f otherwise.</li>
+<li>%T outputs the type of a var, %v prints the default format of a var’s value.</li>
+<li>%q is a double-quoted string safely escaped with Go syntax, with this we do not need the python-style ‘“{}”‘</li>
 </ul>
 <h3 id="Declaration"><a href="#Declaration" class="headerlink" title="Declaration"></a>Declaration</h3><ul>
 <li>easier to understand than C family style. it’s a improvement over traditional styles, it shows the evolution of programming languages in recent years, we can see more and more languages use the way that Go uses.</li>
 </ul>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
-<li>It monitors sockets, open files, and pipes (anything with a fileno() method that returns a valid file descriptor) until they become readable or writable, or a communication error occurs.</li>
-<li>when file object which registered to selector is ready to read / write, it will be put to a event queue.</li>
-<li>when applying to normal file open, it does not mean key.data will be triggered each time the file is modified.</li>
-<li>each event in the event loop will also know the callback funtion it needs to execute next.</li>
-<li>If we call select(None), the call will <strong>block</strong> until a monitored file object becomes ready.</li>
-<li>using single thread callback / coroutine async method, we don’t need to synchronize a shared data structure (like a list), because any given time, the list is access by no more than 1 thread.</li>
-<li>dis -&gt; disassembly of python bytecode</li>
-<li>inspect</li>
-<li>A Python generator encapsulates a stack frame plus a reference to some code, the body of gen_fn</li>
-<li>The frame has a “last instruction” pointer, the instruction it executed most recently. In the beginning, the last instruction pointer is -1, meaning the generator has not begun</li>
-<li>The advantage of using coroutine based async is that coroutine can be paused and resumed, so we can write the code to be run next just after <strong>yield from</strong>,<br>it will be paused and give out control and then wait for the control back to continue to run the code below. So when programming, it’s just like writing sync code.</li>
-<li><strong>yield from</strong> / <strong>await</strong> only provides a async framework / capability. The trigger / ready_event after the thing is done actually needs low-level package / features to support such as <a href="https://docs.python.org/3/library/selectors.html" target="_blank" rel="external">selector</a>.</li>
-<li>Future is a result that a coroutine is waiting for.</li>
+<h3 id="rune"><a href="#rune" class="headerlink" title="rune"></a>rune</h3><ul>
+<li>interesting name</li>
+<li>it’s unicode code point.</li>
+</ul>
+<h3 id="zero_value"><a href="#zero_value" class="headerlink" title="zero value"></a>zero value</h3><ul>
+<li>similar to C, 0 for numeric types, false for boolean types, “” for string.</li>
 </ul>
 <h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
-<li>Why selector is called I/O Multiplexing (多路复用)</li>
-<li>what does ready mean in this context? for a socket / file / pipeline ?</li>
-<li>what kind of object will have fileno, is there any pattern or rule to follow?</li>
+<li>Why Go make complex a built-in type? to serve what scenario?</li>
+<li>Why constants cannot be declared using the := syntax? Because := is a way to omit <strong>var</strong>. but when define a constant, we use keyword <strong>const</strong>, which means it’s not a <strong>var</strong>. So := can not be used here.</li>
 <li>is it the thing so called EventLoop?<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">  events = sel.select()</span><br><span class="line">  <span class="keyword">for</span> key, mask <span class="keyword">in</span> events:</span><br><span class="line">      callback = key.data</span><br><span class="line">      callback(key.fileobj, mask)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
