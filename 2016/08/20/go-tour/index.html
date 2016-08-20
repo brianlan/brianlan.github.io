@@ -37,6 +37,12 @@
 </ul>
 <h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><ul>
 <li>seems like defer is following a push / pop stack mechanism. </li>
+<li>it’s a quite interesting feature that does the flow control thing. it’s special by comparing it with other programming languages.</li>
+<li>more details <a href="https://blog.golang.org/defer-panic-and-recover" target="_blank" rel="external">Defer, Panic, and Recover</a></li>
+</ul>
+<h3 id="panic__26amp_3B_recover"><a href="#panic__26amp_3B_recover" class="headerlink" title="panic &amp; recover"></a>panic &amp; recover</h3><ul>
+<li>seems like panic and recover are doing the <strong>Error Handling</strong> tasks. </li>
+<li>panic can be propagated to outer callers and recover can catch a panic and resume the program to a normal status from a panicking status.</li>
 </ul>
 <h3 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h3><ul>
 <li>NULL</li>
@@ -107,15 +113,15 @@
 </ul>
 <h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
 <li>Why Go make complex a built-in type? to serve what scenario?</li>
-<li>[answered] Why constants cannot be declared using the := syntax? <ul>
+<li>[<font color="red">answered</font>] Why constants cannot be declared using the := syntax? <ul>
 <li>Because := is a way to omit <strong>var</strong>. but when define a constant, we use keyword <strong>const</strong>, which means it’s not a <strong>var</strong>. So := can not be used here.</li>
 </ul>
 </li>
-<li>[answered] what’s the underlying implementation of creating a slice literals? Is there an array created first, and then slicing a full of it?<ul>
+<li>[<font color="red">answered</font>] what’s the underlying implementation of creating a slice literals? Is there an array created first, and then slicing a full of it?<ul>
 <li>When called, make allocates an array and returns a slice that refers to that array.</li>
 </ul>
 </li>
-<li>[answered] what does <em>cap</em> do in a slice? why do we need to use <em>make</em> to create a zeroed array and a slice? (<a href="https://blog.golang.org/go-slices-usage-and-internals" target="_blank" rel="external">Go Slices: usage and internals</a>)</li>
-<li></li>
+<li>[<font color="red">answered</font>] what does <strong>cap</strong> do in a slice? why do we need to use <strong>make</strong> to create a zeroed array and a slice? (<a href="https://blog.golang.org/go-slices-usage-and-internals" target="_blank" rel="external">Go Slices: usage and internals</a>)</li>
+<li>why Go use panic and recover to do error handling? is it related to async programming? </li>
 </ul>
 </div><div class="tags"><a href="/tags/Go/">Go</a><a href="/tags/Programming/">Programming</a></div><div class="post-nav"><a href="/2016/07/30/select/" class="next">select<i class="icon-next"></i></a></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search" class="search-form-input"/><input type="hidden" name="sitesearch" value="http://www.lanrongyi.com"/></form></div><div class="widget"><div class="widget-title">Categories</div></div><div class="widget"><div class="widget-title">Tags</div><div class="tagcloud"><a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/select/" style="font-size: 15px;">select</a> <a href="/tags/Programming/" style="font-size: 15px;">Programming</a> <a href="/tags/Go/" style="font-size: 15px;">Go</a> <a href="/tags/OOP/" style="font-size: 15px;">OOP</a></div></div><div class="widget"><div class="widget-title">Recent</div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/go-tour/">My Tour of Go</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/30/select/">select</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/31/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/31/Python-OOP-Thinking/">Python OOP Thinking</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/30/My-New-Post/">测试文章</a></li></ul></div><div class="widget"><div class="widget-title">Blogroll</div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><div id="footer">© <a href="/." rel="nofollow">Rambo的博客.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/jquery.min.js?v=0.0.0"></script><script type="text/javascript" src="/js/totop.js?v=0.0.0"></script><script type="text/javascript" src="/js/fancybox.pack.js?v=0.0.0"></script><script type="text/javascript" src="/js/jquery.fancybox.js?v=0.0.0"></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
