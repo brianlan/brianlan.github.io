@@ -45,7 +45,10 @@
 </ul>
 <h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
 <li>Why Go make complex a built-in type? to serve what scenario?</li>
-<li>Why constants cannot be declared using the := syntax?<br>– Because := is a way to omit <strong>var</strong>. but when define a constant, we use keyword <strong>const</strong>, which means it’s not a <strong>var</strong>. So := can not be used here.</li>
+<li>Why constants cannot be declared using the := syntax? <ul>
+<li>Because := is a way to omit <strong>var</strong>. but when define a constant, we use keyword <strong>const</strong>, which means it’s not a <strong>var</strong>. So := can not be used here.</li>
+</ul>
+</li>
 <li>is it the thing so called EventLoop?<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">  events = sel.select()</span><br><span class="line">  <span class="keyword">for</span> key, mask <span class="keyword">in</span> events:</span><br><span class="line">      callback = key.data</span><br><span class="line">      callback(key.fileobj, mask)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
