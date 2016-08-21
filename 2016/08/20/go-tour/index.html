@@ -75,6 +75,9 @@
 <li><em>for i, v := range mylist</em> is similar to python’s <em>for idx, val in enumerate(mylist)</em></li>
 <li>the returning of range: the first is the index, and the second is a copy of the element at that index.</li>
 </ul>
+<h3 id="make"><a href="#make" class="headerlink" title="make"></a>make</h3><ul>
+<li>make is an initialization function that can be used to created empty array or map that are ready to use.</li>
+</ul>
 <h3 id="variant_length_params"><a href="#variant_length_params" class="headerlink" title="variant length params"></a>variant length params</h3><ul>
 <li>…T</li>
 </ul>
@@ -126,6 +129,14 @@
 </ul>
 <h3 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h3><ul>
 <li>An interface can either be a normal type or a pointer type.</li>
+<li>interface is also a type, that’s why when declaring it use type I interface {}</li>
+<li>empty interface may hold values of any type, it’s similar to C’s void* type.</li>
+<li>type switch is similar to pattern matching in Scala, it’s to provide different type assertions to expect the passed-in interface can be transformed to an expected concrete value.</li>
+<li><p>define a String() method to let Stringer interface to do printing. It’s like defining toString() method in Java.</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> (v YourType) String() <span class="typename">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> fmt.Sprintf(<span class="string">"something"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if the receiver of an abstract method is defined using pointer, then when calling the interface’s method, it can only be successful when the interface is a pointer.</p>
+</li>
 </ul>
 <h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ul>
 <li>Why Go make complex a built-in type? to serve what scenario?</li>
